@@ -74,9 +74,8 @@ for resistor in resistors:
             # The 3rd harmonic is 75Hz
             # So we need to filter somewhere below that value
             # as close to 25Hz as we can get
-            if frequency > 25.0 and frequency < 75.0:
-                if frequency < minFreq:
-                    minFreq = frequency
-                    minResistor = resistor
-                    minCapacitor = capacitor
+            if frequency > 25.0 and frequency < 75.0 and frequency < minFreq:
+                minFreq = frequency
+                minResistor = resistor
+                minCapacitor = capacitor
 print minResistor, minCapacitor, minFreq
