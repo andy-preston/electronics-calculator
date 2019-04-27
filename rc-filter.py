@@ -30,7 +30,7 @@ def capacitorValue(val):
     if newVal != val:
         return float(newVal) * 0.000000001
 
-# www.bitsbox.co.uk 1/4W Carbon File 5% Resistors
+# www.bitsbox.co.uk 1/4W Carbon Film 5% Resistors
 resistors = [
     "0R", "1R", "1R5", "1R8", "2R2", "3R3", "4R7", "5R6", "6R8", "8R2",
     "10R", "12R", "15R", "18R", "22R", "33R", "47R", "56R", "68R", "82R",
