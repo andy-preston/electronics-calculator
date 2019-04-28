@@ -60,9 +60,12 @@ capacitors = [
 ]
 
 pi2 = 2 * math.pi
-minFreq = 75.0
-minResistor = ''
-minCapacitor = ''
+lp1Freq = 75.0
+lp1Resistor = ''
+lp1Capacitor = ''
+hpFreq = 0.0
+hpResistor = ''
+hpCapacitor = ''
 
 for resistor in resistors:
     R = resistorValue(resistor)
@@ -70,12 +73,19 @@ for resistor in resistors:
         for capacitor in capacitors:
             C = capacitorValue(capacitor)
             frequency = 1 / (pi2 * R * C)
-            # We're trying to filter a square wave at 25Hz
-            # The 3rd harmonic is 75Hz
-            # So we need to filter somewhere below that value
-            # as close to 25Hz as we can get
-            if frequency > 25.0 and frequency < 75.0 and frequency < minFreq:
-                minFreq = frequency
-                minResistor = resistor
-                minCapacitor = capacitor
-print minResistor, minCapacitor, minFreq
+            # We're trying to filter a square wave of 25Hz. The 3rd harmonic
+            # is 75Hz. So we need to filter somewhere below that but as close
+            # to 25Hz as we can get. We're also removing the DC offset with
+            # a coupling capacitor / high pass filter. So we need a value which
+            # will cut off below the 25Hz but, again, as close to 25Hz as we
+            # can get.
+            if frequency > 25.0 and frequency < 75.0 and frequency < lp1Freq:
+                lp1Freq = frequency
+                lp1Resistor = resistor
+                lp1Capacitor = capacitor
+            if frequency < 25.0 and frequency > hpFreq:
+                hpFreq = frequency
+                hpResistor = resistor
+                hpCapacitor = capacitor
+print 'Low pass filter (1):', lp1Resistor, lp1Capacitor, lp1Freq
+print 'High pass filter:', hpResistor, hpCapacitor, hpFreq
