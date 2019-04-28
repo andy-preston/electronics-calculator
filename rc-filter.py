@@ -63,6 +63,8 @@ pi2 = 2 * math.pi
 lp1Freq = 75.0
 lp1Resistor = ''
 lp1Capacitor = ''
+
+maxC = 0.0
 hpFreq = 0.0
 hpResistor = ''
 hpCapacitor = ''
@@ -83,7 +85,8 @@ for resistor in resistors:
                 lp1Freq = frequency
                 lp1Resistor = resistor
                 lp1Capacitor = capacitor
-            if frequency < 25.0 and frequency > hpFreq:
+            if frequency < 25.0 and C > maxC:
+                maxC = C
                 hpFreq = frequency
                 hpResistor = resistor
                 hpCapacitor = capacitor
