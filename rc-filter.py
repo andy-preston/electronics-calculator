@@ -45,7 +45,7 @@ capacitors = [
     '0.1uF', '0.22uF', '0.47uF', '1uF', '2.2uF', '3.3uF', '4.7uF',
     '10uF', '22uF', '33uF', '47uF',
     '100uF', '220uF', '330uF', '470uF',
-    '1000uF', '2200uF', '3300uF', '4700uF', '6800uF'
+    #'1000uF', '2200uF', '3300uF', '4700uF', '6800uF'
 ]
 
 electros = capacitorValue('0.1uF')
