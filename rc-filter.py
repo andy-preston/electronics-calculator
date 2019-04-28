@@ -3,13 +3,13 @@
 import math
 
 def resistorValue(val):
-    for letter, power in { 'M': 6, 'K': 3, 'R': 0}.items():
+    for letter, power in { 'M': 6, 'K': 3, 'R': 0 }.items():
         newVal = val.replace(letter, '.')
         if newVal != val:
             return float(newVal) * 10 ** power
 
 def capacitorValue(val):
-    for letter, power in { 'p': -12, 'n': -9, 'u': -6}.items():
+    for letter, power in { 'p': -12, 'n': -9, 'u': -6 }.items():
         newVal = val.replace(letter + 'F', '')
         if newVal != val:
             return float(newVal) * 10 ** power
