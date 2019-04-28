@@ -1,14 +1,5 @@
 #!/usr/bin/python
 
-################################################################################
-#
-# Calculate the resistor and capacitor to form the first stage filter
-# to clip a 25Hz square wave to a sine wave
-#
-# This filter will probably need 4 stages but "one step at a time"
-#
-################################################################################
-
 import math
 
 def resistorValue(val):
@@ -79,8 +70,8 @@ for resistor in resistors:
             # is 75Hz. So we need to filter somewhere below that but as close
             # to 25Hz as we can get. We're also removing the DC offset with
             # a coupling capacitor / high pass filter. So we need a value which
-            # will cut off below the 25Hz but, again, as close to 25Hz as we
-            # can get.
+            # will cut off below the 25Hz with the highest capacitor value we
+            # can find.
             if C < electros and frequency > 25.0 and frequency < 75.0 and frequency < lp1Freq:
                 lp1Freq = frequency
                 lp1Resistor = resistor
