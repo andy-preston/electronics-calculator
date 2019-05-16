@@ -1,6 +1,12 @@
 Electronics Calculators
 =======================
 
+Potential Divider calculator
+----------------------------
+
+Give it an input voltage an output voltage and a catalogue of available
+resistors and it'll get you as close as possible.
+
 25Hz RC Filter calculator
 -------------------------
 
