@@ -37,7 +37,7 @@ for resistor1 in resistors:
     for resistor2 in existingResistors:
         R2 = resistorValue(resistor2)
         vout = (vin * R2) / (R1 + R2)
-        if vout < voutWant and vout > voutMax:
+        if vout <= voutWant and vout > voutMax:
             voutMax = vout
             resistor1use = resistor1
             resistor2use = resistor2
